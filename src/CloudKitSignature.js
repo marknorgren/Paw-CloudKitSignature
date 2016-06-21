@@ -1,7 +1,8 @@
 // Extensions are implemented as JavaScript classes
+
 const https = require('https');
-    var fs = require('fs');
-    var crypto = require('crypto');
+const fs = require('fs');
+const crypto = require('crypto');
 
 var CloudKitSignature = function() {
 
@@ -11,6 +12,13 @@ var CloudKitSignature = function() {
   	var dateString = new Date().toISOString().replace(/\.[0-9]+?Z/, "Z")
 
     var dynamicValue = "mark"; // generate some dynamic value
+    
+        const secret = 'abcdefg';
+        const hash = crypto.createHmac('sha256', secret)
+            .update('I love cupcakes')
+            .digest('hex');
+        console.log(hash);
+
     return dynamicValue;
   }
 }
